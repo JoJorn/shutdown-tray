@@ -16,7 +16,7 @@ tray_icon = None
 
 
 def shutdown_pc() -> None:
-    subprocess.Popen(["shutdown", "/s", "/t", "10", "/f", "/c", "Shutdown by API via ShutdownTray"], shell=False)
+    subprocess.Popen(["shutdown", "/s", "/t", "4", "/f", "/c", "Shutdown via ShutdownTray"], shell=False)
 
 def create_image():
     image = Image.new("RGB", (64, 64), color="black")
