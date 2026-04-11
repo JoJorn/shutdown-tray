@@ -5,6 +5,7 @@ import subprocess
 from flask import Flask, request, jsonify
 import pystray
 from PIL import Image, ImageDraw
+from waitress import serve
 
 HOST = "0.0.0.0"   # Zet op "127.0.0.1" als alleen lokaal
 PORT = 8765
@@ -12,10 +13,6 @@ API_TOKEN = "SecretToken"
 
 app = Flask(__name__)
 tray_icon = None
-
-
-def is_windows() -> bool:
-    return os.name == "nt"
 
 
 def shutdown_pc() -> None:
@@ -28,7 +25,6 @@ def create_image():
     draw.line((16, 32, 43, 32), fill="white", width=4)
     draw.line((32, 22, 43, 32), fill="white", width=4)
     draw.line((32, 42, 43, 32), fill="white", width=4)
-
     return image
 
 
@@ -46,7 +42,7 @@ def shutdown_route():
 
 
 def run_webserver():
-    app.run(host=HOST, port=PORT, debug=False, use_reloader=False)
+    serve(app, host=HOST, port=PORT)
 
 
 def menu_exit(icon, item):
