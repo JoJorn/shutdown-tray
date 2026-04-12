@@ -8,5 +8,10 @@ Usage
 2. Build with bat file
 
 PowerShell example:
-Invoke-RestMethod -Method POST `  -Uri "http://127.0.0.1:8765/shutdown"`
--Headers @{ "X-API-Token" = "SecretToken" }
+
+```powershell
+Invoke-RestMethod `
+    -Method POST `
+    -Uri "http://127.0.0.1:8765/shutdown" `
+    -Headers @{ "X-API-Token" = "SecretToken" }
+```
