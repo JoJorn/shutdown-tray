@@ -1,4 +1,4 @@
-Shutdown Tray App (simple)
+### Shutdown Tray App (simple)
 
 Created using ChatGPT
 
