@@ -1,6 +1,5 @@
 # Shutdown Tray App (simple)
-
-## Created using ChatGPT
+Created using ChatGPT
 
 ### Usage
 
