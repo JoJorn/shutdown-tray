@@ -1,8 +1,7 @@
-### Shutdown Tray App (simple)
-
+# Shutdown Tray App (simple)
 Created using ChatGPT
 
-Usage
+### Usage
 
 1. Change HOST / PORT / API_TOKEN in shutdown_tray.py
 2. Build with bat file
