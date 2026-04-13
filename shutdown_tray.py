@@ -21,7 +21,7 @@ tray_icon = None
 def shutdown_pc() -> None:
     subprocess.Popen(["shutdown", "/s", "/t", "4", "/f", "/c", "Shutdown via ShutdownTray"], shell=False)
 
-def create_image():
+def create_icon_image():
     image = Image.new("RGBA", (64, 64))
     draw = ImageDraw.Draw(image)
     draw.rounded_rectangle((0, 0, 64, 64), fill=(0, 70, 126), radius=17)
@@ -86,18 +86,10 @@ def main():
     server_thread.start()
     tray_icon = pystray.Icon(
         app_title,
-        create_image(),
+        create_icon_image(),
         app_title,
         menu=pystray.Menu(
             pystray.MenuItem(f"{app_title} (app info)", threaded_menu_action(menu_info)),
-            # pystray.MenuItem(
-            #     "Info",
-            #     pystray.Menu(
-            #         pystray.MenuItem("Status: active", None),
-            #         pystray.MenuItem(f"Host: {HOST}", None),
-            #         pystray.MenuItem(f"Port: {PORT}", None),
-            #     )
-            # ),
             pystray.Menu.SEPARATOR,
             pystray.MenuItem("Exit app", threaded_menu_action(menu_exit))
         ),
